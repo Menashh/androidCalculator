@@ -1,13 +1,11 @@
 package com.example.myapplicationandroid1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
 public class MainActivity extends AppCompatActivity {
     Button one,two,three,four,five,six,seven,eight,nine,zero,C,mul,div,plus,minus,equal;
     TextView textView;
@@ -98,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 num2=Float.parseFloat(textView.getText()+"");
                 if(add==true){
                     textView.setText(num1+num2+"");
@@ -115,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText(num1/num2+"");
                     divide=false;
                 }
+                Intent intent=new Intent(getBaseContext(),MainActivity_second.class);
+                intent.putExtra("KEY",textView.getText().toString());
+                startActivity(intent);
             }
         });
         plus.setOnClickListener(new View.OnClickListener() {
@@ -175,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("");
             }
         });
+
 
     }
 }
